@@ -52,16 +52,20 @@ public class Buying_Page {
 
         User_spring uss=buying_service.get_Phone(us.getPhone());
         Tovar_spring ts= tovar_service.get_byId(id);
+        boolean added=false;
         if(uss==null){
-            us.setId_user(new Random().nextLong());
+
             ResponseEntity r=buying_service.save(us);
-            zakaz_service.add_order(us,ts);
+
+                added=true;
 
         }
-        else {
-            zakaz_service.add_order(uss,ts);
-        }
 
+       if(added){
+           uss=buying_service.get_Phone(us.getPhone());
+       }
+
+        zakaz_service.add_order(uss,ts);
 
         return "resual_page";
     }
