@@ -24,7 +24,7 @@
 <form:form method = "POST" action = "/zakaz/info" modelAttribute="us">
     <table>
         <tr>
-            <td><form:label path = "phone">Номер телефона:</form:label></td>
+            <td><form:label path = "phone">Номер телефона:+7</form:label></td>
             <td><form:input path = "phone" /></td>
         </tr>
         <tr>
@@ -34,37 +34,36 @@
         </tr>
     </table>
 </form:form>
-<div class="container-fluid" >
+<table class="table">
+    <thead>
+    <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Товар</th>
+        <th scope="col">Изображение</th>
+        <th scope="col">Название</th>
+        <th scope="col">Цена</th>
+        <th scope="col">Имя покупателя</th>
+        <th scope="col">Город</th>
+        <th scope="col">Дата</th>
+    </tr>
+    </thead>
+    <tbody>
     <c:forEach items="${List}" var="L">
-<div class="row">
-    <div class="col-sm" >
-            ${L.getId()}
-    </div>
-    <div class="col-sm">
-            ${L.getListTov().getName()}
-    </div>
-    <div class="col-sm">
-        <img src="${L.getListTov().getImg()}" style="height: 100px;width: 100px">
-    </div>
-    <div class="col-sm">
-            ${L.getListTov().getName()}
-    </div>
-    <div class="col-sm">
-            ${L.getListTov().getPrice()}
-    </div>
-    <div class="col-sm">
-            ${L.getUsers().getName()}
-    </div>
-    <div class="col-sm">
-            ${L.getUsers().getCity()}
-    </div>
-    <div class="col-sm">
-            ${L.getDatetime()}
-    </div>
+        <tr>
+            <th scope="row">${L.getId()}</th>
+            <td>${L.getListTov().getName()}</td>
+            <td><img src="${L.getListTov().getImg()}" style="height: 100px;width: 100px"></td>
+            <td> ${L.getListTov().getName()}</td>
+            <td> ${L.getListTov().getPrice()}</td>
+            <td> ${L.getUsers().getName()}</td>
+            <td> ${L.getUsers().getCity()}</td>
+            <td> ${L.getDatetime()}</td>
+        </tr>
+    </c:forEach>
 
-</div>
-</c:forEach>
-</div>
+    </tbody>
+</table>
+
 
 </body>
 </html>

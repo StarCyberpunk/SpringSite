@@ -20,19 +20,23 @@
 </head>
 <body>
 <jsp:include page="mapping_partial.jsp"/>
-${Tov.getName()}
-<div>
+<div class="container-fluid">
+    <div class="row">
+    <div class="col-4">
+        <h1>${Tov.getName()}</h1>
+<img src="${Tov.getImg()}" style="width: 300px;height: 300px">
     <br/>
     Цена: ${Tov.getPrice()}
     <br/>
     Поставщик: ${Tov.getPostavshik_springs().getNameCompany()}<br/>
-
-    
+</div>
+    <div class="col-6">
+        <h3>Введите данные:</h3>
     <%--@elvariable id="user_sp" type="com"--%>
     <form:form method = "POST" action = "/buying/cart/${Tov.getId()}" modelAttribute="user_sp">
     <table>
         <tr>
-            <td><form:label path = "phone">Номер телефона:</form:label></td>
+            <td><form:label path = "phone">Номер телефона: +7</form:label></td>
             <td><form:input path = "phone" /></td>
         </tr>
         <tr>
@@ -45,12 +49,14 @@ ${Tov.getName()}
         </tr>
         <tr>
             <td colspan = "2">
-                <input type = "submit" value = "Submit"/>
+                <input type = "submit" value = "Заказать"/>
             </td>
         </tr>
     </table>
     </form:form>
-
+</div>
+</div>
+</div>
 
 
 </body>

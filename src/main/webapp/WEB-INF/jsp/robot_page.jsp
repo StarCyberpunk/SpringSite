@@ -12,20 +12,31 @@
 </head>
 <body>
 <jsp:include page="mapping_partial.jsp"/>
-<div>
-    <img src="${Tov.getImg()}" style="width: 500px;height: 500px">
-</div>
-<div>${Tov.getName()}</div>
-<div>
-    <br/>
-  Цена: ${Tov.getPrice()}
-    <br/>
-  Кол-во на складе: ${Tov.getCount()}<br/>
-   Категории: ${Tov.getCategory_springs().getName()}<br/>
-  Поставщик: ${Tov.getPostavshik_springs().getNameCompany()}<br/>
-  Изготовитель: ${Tov.getIzgotovitel_springs().getName_Izgot()}<br/>
-    <a href="http://localhost:8080/buying/${Tov.getId()}">Купить</a>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-6">
+            <h1>${Tov.getName()}</h1>
+            <img src="${Tov.getImg()}" style="width: 500px;height: 500px">
+        </div>
+        <div class="col-4">
 
+            <br/>
+            <h3>Цена: ${Tov.getPrice()}</h3>
+            <br/>
+            <h3>Кол-во на складе: ${Tov.getCount()}</h3>
+           <h3> Категории: ${Tov.getCategory_springs().getName()}</h3>
+           <h3> Поставщик: ${Tov.getPostavshik_springs().getNameCompany()}</h3>
+           <h3> Изготовитель: ${Tov.getIzgotovitel_springs().getName_Izgot()}</h3>
+            <a href="http://localhost:8080/buying/${Tov.getId()}" class="btn btn-primary">Купить</a>
+
+        </div>
+    </div>
+
+
+<div>
+
+
+</div>
 </div>
 </body>
 </html>

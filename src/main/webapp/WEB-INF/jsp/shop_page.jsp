@@ -18,28 +18,23 @@
 </head>
 <body>
 <jsp:include page="mapping_partial.jsp"/>
-<div class="container">
-    <div class="row">
-<div class="col">
+<div class="container-fluid">
+<div class="card-group">
+<div class="row">
 <c:forEach items="${ListTov}" var="Tov">
-
-    
-                <div class="row">
-                    <div class="col-sm">
-                        <a href="http://localhost:8080/robot/${Tov.getId()}" >
-                            <img src="${Tov.getImg()}" class="img-fluid" style="width:200px; height:200px;"/>
-                        </a>
-                    <br/>
-                        <a href="http://localhost:8080/robot/${Tov.getId()}" > ${Tov.getName()}<br/></a>
-                        Цена: ${Tov.getPrice()}
-
-                    </div>
-
-            </div>
-</c:forEach>
+    <div class="col-md-3">
+    <div class="card" style="width: 18rem;">
+        <img src="${Tov.getImg()}" class="card-img-top" alt="..." style="width:200px; height:200px;">
+        <div class="card-body">
+            <h5 class="card-title">${Tov.getName()}</h5>
+            <p class="card-text">Цена: ${Tov.getPrice()}</p>
+            <a href="http://localhost:8080/robot/${Tov.getId()}" class="btn btn-primary">Подробнее</a>
         </div>
     </div>
+    </div>
+</c:forEach>
 </div>
-
+</div>
+</div>
 </body>
 </html>
